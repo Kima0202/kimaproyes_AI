@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OAuth Callback</title>
+</head>
+<body>
+    <h1>Autenticación Completada</h1>
+    <p>Tu autenticación con Dropbox fue exitosa. El token será procesado automáticamente.</p>
+    <script>
+        const hash = window.location.hash.substring(1);
+        const params = new URLSearchParams(hash);
+        const accessToken = params.get("access_token");
+
+        if (accessToken) {
+            console.log("Token de acceso:", accessToken);
+            alert("Token de acceso: " + accessToken);
+        } else {
+            console.error("No se encontró el token de acceso.");
+        }
+    </script>
+</body>
+</html>
